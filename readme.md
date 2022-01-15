@@ -25,15 +25,15 @@ git fetch upstream
 ```bash
 cd frontend
 ```
-7. Run the following command.
+7. Run the following command(make sure node is installed).
 ```bash
 npm install
 ```
 8. Go to the backend folder.
 ```bash
-cd client
+cd backend
 ```
-9. Run the following command.
+9. Run the following command(make sure node is installed).
 ```bash
 npm install
 ```
