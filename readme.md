@@ -21,24 +21,36 @@ git remote add https://github.com/developer-diganta/dbms-project
 ```bash
 git fetch upstream
 ```
-6. Run the following command (make sure node is installed)
+6. Go to the frontend folder.
 ```bash
-npm i
+cd frontend
 ```
-7. Make a new branch (name is as per what changes you are making)
+7. Run the following command(make sure node is installed).
+```bash
+npm install
+```
+8. Go to the backend folder.
+```bash
+cd backend
+```
+9. Run the following command(make sure node is installed).
+```bash
+npm install
+```
+10. Make a new branch (name is as per what changes you are making)
 ```bash
 git checkout -b <branch-name>
 ```
-8. Make the changes you want.
-7. Add the files you have changed using the following command.
+11. Make the changes you want.
+12. Add the files you have changed using the following command.
 ```bash
 git add <files you have changed/added>
 ```
-9. Commit the changes with a commit message.
+13. Commit the changes with a commit message.
 ```bash
 git commit -m <Message describing the change>
 ```
-10.Push the changes.
+14. Push the changes.
 ```bash
 git push -u origin <name-of-branch>
 ```
