@@ -21,70 +21,36 @@ git remote add https://github.com/developer-diganta/dbms-project
 ```bash
 git fetch upstream
 ```
-6. Run the following command (make sure node is installed)
+6. Go to the frontend folder.
 ```bash
-npm i
+cd frontend
 ```
-7. Make a new branch (name is as per what changes you are making)
+7. Run the following command.
+```bash
+npm install
+```
+8. Go to the backend folder.
+```bash
+cd client
+```
+9. Run the following command.
+```bash
+npm install
+```
+10. Make a new branch (name is as per what changes you are making)
 ```bash
 git checkout -b <branch-name>
 ```
-8. Make the changes you want.
-7. Add the files you have changed using the following command.
+11. Make the changes you want.
+12. Add the files you have changed using the following command.
 ```bash
 git add <files you have changed/added>
 ```
-9. Commit the changes with a commit message.
+13. Commit the changes with a commit message.
 ```bash
 git commit -m <Message describing the change>
 ```
-10.Push the changes.
+14. Push the changes.
 ```bash
 git push -u origin <name-of-branch>
 ```
-
-## TABLE CREATION
-
-### STUDENT:
-
-create table student(
-name varchar(10) not null,
-regno varchar(6) not null primary key,
-rollno int(6) not null,
-contact int(10),
-address varchar(20) not null,
-email varchar(25) not null
-);
-
-### EXAM:
-
-create table exam(
-regno varchar(6) not null primary key,
-department_id int(3) not null,
-department_name varchar(5) not null,
-stream_name varchar(30),
-stream_id int(2) not null,
-duration int not null,
-course_name varchar(10) not null,
-subject_name varchar(8) not null,
-score int(3) not null,
-grade varchar(2) not null,
-gpa float(2,1) not null
-);
-
-### ADMINISTRATOR
-create administrator(
-rollno int(6) not null,
-admin_id varchar(4) not null,
-password varchar(25) not null
-);
-
-
-### FE
-create table fee(
-regno varchar(6) not null primary key,
-recieptno int(5) not null,
-tuition_fee int(10) not null,
-dop date not null,
-concession varchar(25) 
-);
