@@ -1,4 +1,4 @@
-# Foobar
+# DBMS PROJECT
 
 This is the DBMS project submission for practicals.
 
