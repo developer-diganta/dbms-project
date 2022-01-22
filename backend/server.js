@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require("express");
 var mysql = require('mysql');
 const cors = require("cors");
+const { query } = require('express');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -77,6 +78,66 @@ app.get("/createtablefeereceipt", (req, res) => {
         res.json("Query: " + query);
     });
 })
+
+// app.get("/showdata", (req, res) => {
+//     var query=`select * from student;`
+//     connection.query(query, (err, rows, fields) => {
+//         if(err) throw err;
+//         res.json("Query: " + rows[0].name);
+//     });
+// })
+
+
+
+app.get("/:sub/:percent", (req, res) => {
+    const regno = req.params.regno;
+    const sub = req.params.sub;
+    const percent = req.params.percent;
+    const query = `select * from student where regno in (select Registration_number from query where Subject_name='${sub}' and score>=${percent});`
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.json(rows);
+    })
+})
+
+// app.get("/totalmarks", (req, res) => {
+//     const query = `select Registration_number, sum(score) as total_marks from query group by Registration_number;`
+//     connection.query(query, (err, rows, fields) => {
+//         if(err) throw err;
+//         console.log(rows);
+//         // res.json(rows);
+//     })
+// })
+
+app.get("/totalmarks", (req, res) => {
+    const query = `select name, regno from student where regno in (select regno from fee_details,fee_receipt where fee_details.recieptno=fee_receipt.receiptno and fee_details.concession is not null);`
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.json(rows);
+    })
+})
+
+app.get("/a", (req, res) => { 
+    var query = `select name, regno from student where regno in (select regno from fee_details,fee_receipt where fee_details.recieptno=fee_receipt.receiptno and fee_details.concession is not null);`;
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+        res.json("Query: "+ query);
+     });
+})
+
+app.get("/query/:query", (req, res) => {
+    const queryName = req.params.query;
+    var query=`${queryName}`;
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        
+        console.log(rows);
+        res.json(rows);
+    });
+})
+
 //Listening on port 5000
 app.listen(process.env.PORT || 5000, () => {
     console.log("Running on port 5000");
