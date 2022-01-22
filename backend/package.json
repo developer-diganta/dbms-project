@@ -8,5 +8,11 @@
     "start": "node server.js"
   },
   "author": "SASDS",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^14.1.0",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
 }
