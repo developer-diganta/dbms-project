@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const express = require("express");
 var mysql = require('mysql');
 const cors = require("cors");
@@ -10,20 +10,20 @@ app.use(cors());
 
 
 var connection = mysql.createConnection({
-  host     : process.env.DB_HOST,
-  user     : process.env.DB_USER,
-  password : process.env.DB_PASS,
+  host     : 'localhost',
+  user     : 'root',
+  password : 'dana@1234',
   database : 'student_portal'
 });
 connection.connect();
 
 //add get route
 app.get("/", (req, res) => {
-    query = "SHOW TABLES";
+    var query = "SHOW TABLES";
     connection.query(query, (err, rows, fields) => { 
         if (err) throw err;
         var results = [];
-        for (var i = 0; i < rows.length; i++) { 
+        for (var i = 0; i < rows.length; i++) {
             results.push(rows[i].Tables_in_student_portal);
         }
         console.log(results);
@@ -79,13 +79,13 @@ app.get("/createtablefeereceipt", (req, res) => {
     });
 })
 
-// app.get("/showdata", (req, res) => {
-//     var query=`select * from student;`
-//     connection.query(query, (err, rows, fields) => {
-//         if(err) throw err;
-//         res.json("Query: " + rows[0].name);
-//     });
-// })
+app.get("/showdata", (req, res) => {
+    var query=`select * from student;`
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        res.json(rows);
+    });
+})
 
 
 
