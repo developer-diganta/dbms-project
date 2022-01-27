@@ -7,7 +7,7 @@ function Header() {
         <>
             <Navbar variant="dark" style={{backgroundColor: "#A2DCE7"}}>
                 <Container>
-                <Navbar.Brand href="#home">Student Portal</Navbar.Brand>
+                <Navbar.Brand href="#home" style={{color: "#3D5B59"}}>Student Portal</Navbar.Brand>
                 <Nav className="me-right">
                 <Nav.Link href="#home">Home</Nav.Link>
                 <Nav.Link href="#features">Features</Nav.Link>
