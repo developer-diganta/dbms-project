@@ -1,0 +1,147 @@
+.button{
+    outline: none;
+    border: none;
+    margin: 40px 20px;
+    border-radius: 40px;
+    font-size: larger;
+    font-weight: 600;
+    
+transition: 0.4s;
+}
+
+
+.button:hover{
+    transform: scale(1.1);
+    box-shadow:
+  4.5px 4.5px 3.6px rgba(0, 0, 0, 0.024),
+  12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+  30.1px 30.1px 24.1px rgba(0, 0, 0, 0.046),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
+}
+
+.b_1{
+    background-color: #B5E5CF;
+    color: #3D5B59;
+}
+
+.b_2{
+    background-color: #3D5B59;
+    color: #FFF;
+}
+
+.p_wh{
+    position: relative;
+    overflow: hidden;
+    
+    padding: 6px 26px;
+}
+
+.p_wh:hover > .white{
+    display: block;
+}
+
+.p_wh:hover > .white_1{
+    display: block;
+}
+
+.white{
+    background-color: #FFF;
+    min-width: 10px;
+    max-width: 10px;
+    min-height: 80px;
+    max-height: 20px;
+    transform: rotate(40deg);
+    position: absolute;
+    top: -20px;
+    bottom: 0;
+    animation: shine 0.4s ease;
+    display: none;
+    left: -123px;
+}
+.white_1{
+    background-color: #FFF;
+    min-width: 2px;
+    max-width: 2px;
+    min-height: 80px;
+    max-height: 20px;
+    margin: 0px 14px;
+    transform: rotate(40deg);
+    position: absolute;
+    top: -10px;
+    bottom: 0;
+    animation: shine 0.4s ease-in-out;
+    display: none;
+    left: -100px;
+}
+
+@keyframes shine{
+    0%{
+        left: -100%;
+    }
+    10%{
+        left: 10%;
+    }
+    20%{
+        left: 20%;
+    }
+    30%{
+        left: 30%;
+    }
+    40%{
+        left: 40%;
+    }
+    50%{
+        left: 50%;
+    }
+    60%{
+        left: 60%;
+    }
+    70%{
+        left: 70%;
+    }
+    80%{
+        left: 80%;
+    }
+    90%{
+        left: 90%;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+.parent_table{
+    margin: 10px 40px;
+}
+
+.sort{
+    display: flex;
+    justify-content: center;
+}
+
+.sort_btn{
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.tb_hd{
+    justify-content: space-between;
+}
+
+.btn_1{
+    margin: 0px 5px;
+    background-color: #B5E5CF;
+    color: #3D5B59;
+}
+
+.btn_2{
+    background-color: #3D5B59;
+    color: #B5E5CF;
+}

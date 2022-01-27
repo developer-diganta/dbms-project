@@ -89,7 +89,7 @@ app.get("/showdata", (req, res) => {
 
 
 
-app.get("/:sub/:percent", (req, res) => {
+app.get("subject/:sub/:percent", (req, res) => {
     const regno = req.params.regno;
     const sub = req.params.sub;
     const percent = req.params.percent;
@@ -127,8 +127,9 @@ app.get("/a", (req, res) => {
      });
 })
 
-app.get("/query/:query", (req, res) => {
+app.get("/xyz/:query", (req, res) => {
     const queryName = req.params.query;
+    console.log(queryName);
     var query=`${queryName}`;
     connection.query(query, (err, rows, fields) => {
         if(err) throw err;
@@ -137,6 +138,21 @@ app.get("/query/:query", (req, res) => {
         res.json(rows);
     });
 })
+
+app.post("/sort", (req, res) => {
+    const order = req.body.order;
+    const order_by = req.body.order_by;
+    const last_query = req.body.last_query;
+    var query=`${last_query}` + " ORDER BY " + order_by + " "+ order;
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.json(rows);
+    });
+    console.log(order, order_by, last_query);
+})
+
+
 
 //Listening on port 5000
 app.listen(process.env.PORT || 5000, () => {
