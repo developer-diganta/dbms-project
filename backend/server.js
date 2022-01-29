@@ -79,16 +79,6 @@ app.get("/createtablefeereceipt", (req, res) => {
     });
 })
 
-app.get("/showdata", (req, res) => {
-    var query=`select * from student;`
-    connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
-        res.json(rows);
-    });
-})
-
-
-
 app.get("subject/:sub/:percent", (req, res) => {
     const regno = req.params.regno;
     const sub = req.params.sub;
@@ -110,8 +100,10 @@ app.get("subject/:sub/:percent", (req, res) => {
 //     })
 // })
 
-app.get("/totalmarks", (req, res) => {
-    const query = `select name, regno from student where regno in (select regno from fee_details,fee_receipt where fee_details.recieptno=fee_receipt.receiptno and fee_details.concession is not null);`
+app.get("/departments/:dpt", (req, res) => {
+    var dept = req.params.dpt;
+    console.log(dept);
+    const query = `select name, rollno, regno from student, query where query.Registration_number=student.regno and query.stream_name="${dept}" group by student.regno;`
     connection.query(query, (err, rows, fields) => {
         if(err) throw err;
         console.log(rows);
@@ -119,11 +111,12 @@ app.get("/totalmarks", (req, res) => {
     })
 })
 
-app.get("/a", (req, res) => { 
+app.get("/details", (req, res) => { 
     var query = `select name, regno from student where regno in (select regno from fee_details,fee_receipt where fee_details.recieptno=fee_receipt.receiptno and fee_details.concession is not null);`;
     connection.query(query, (err, rows, fields) => {
         if (err) throw err;
-        res.json("Query: "+ query);
+        console.log(rows);
+        res.json(rows);
      });
 })
 
@@ -133,7 +126,6 @@ app.get("/xyz/:query", (req, res) => {
     var query=`${queryName}`;
     connection.query(query, (err, rows, fields) => {
         if(err) throw err;
-        
         console.log(rows);
         res.json(rows);
     });
@@ -151,6 +143,19 @@ app.post("/sort", (req, res) => {
     });
     console.log(order, order_by, last_query);
 })
+
+app.post("/inputquery", (req, res) => {
+    console.log("a");
+    const Aquery = req.body.query;
+    var query=`${Aquery}`;
+    connection.query(query, (err, rows, fields) => {
+        if(err) throw err;
+        console.log(rows);
+        res.json(rows);
+    });
+})
+
+
 
 
 

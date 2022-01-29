@@ -1,0 +1,24 @@
+.drop{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.drop_btn{
+    background-color: #FFF;
+}
+
+.btn-primary{
+    background-color: #172337;
+    border-radius: 50px;
+    border: none;
+}
+
+.btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.btn-check:active+.btn-primary, .btn-check:checked+.btn-primary, .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #172337;
+}
