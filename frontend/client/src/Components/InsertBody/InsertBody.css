@@ -1,0 +1,32 @@
+.input_field{
+    border: 1px solid #a2dce7;
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 60vw;
+}
+
+.input_field:focus{
+    outline: none;
+}
+
+.BTN{
+    border: none;
+    background-color: #172337;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #FFF;
+}
+
+.form_input{
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+}
+
+.table_1{
+    margin: 40px 80px;
+}
+
+.form_input h1{
+    color: #172337;
+    margin-bottom: 18px;
+}

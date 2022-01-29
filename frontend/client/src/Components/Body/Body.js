@@ -6,7 +6,7 @@ import './Body.css';
 
 function Body() {
   const[tableData, setTableData] = useState();
-  const[tableName, setTableName] = useState('student');
+  const[tableName, setTableName] = useState();
   var keys = (Object.keys(tableData ? tableData[0] : []));
 
   async function data(){
@@ -61,7 +61,7 @@ async function descending(a){
  }, [])
 
   return (
-    <div>
+    <div className='bodypart'>
       <div className="buttons">
         <button className='button b_1' onClick={() => fees('select * from administrator', 'administrator')}>
           <div className='p_wh'>
@@ -72,14 +72,14 @@ async function descending(a){
         </button>
         <button className='button b_2' onClick={() => fees('select * from fee_details', 'fee_details')}>
           <div className='p_wh'>
-            FeeDetails
+            Fee Details
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
         </button>
         <button className='button b_1' onClick={() => fees('select * from fee_receipt', 'fee_receipt')}>
           <div className='p_wh'>
-            FeeReceipt
+            Fee Receipt
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
@@ -99,14 +99,14 @@ async function descending(a){
           </div>
         </button>
         <button className='button b_2' onClick={() => fees('select * from total_fee', 'total_fee')}><div className='p_wh'>
-            TotalFee
+            Total Fee
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
         </button>
         <button className='button b_1' onClick={() => fees('select * from total_fee_paid', 'total_fee_paid')}>
           <div className='p_wh'>
-            TotalFeePaid
+            Total Fee Paid
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
@@ -116,26 +116,35 @@ async function descending(a){
         <button className='sort_btn' onClick={() => ascending()}><i class="fas fa-sort-up"></i></button>
         <button className='sort_btn' onClick={() => descending()}><i class="fas fa-sort-down"></i></button>
       </div> */}
-      <div className='parent_table' style={{width: "90vw"}}>
-        <table>
-          <tr>
-            {keys.map((y)=><th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
-            <div className='tb_hd' style={{display: "flex"}}>
-              {y}
-              <div className="sort">
-                <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-sort-up"></i></button>
-                <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-sort-down"></i></button>
+      <div className='parent_table'>
+        <h1 className='table_name'>{tableName}</h1>
+        <div style={{overflowX: "auto"}}>
+          <table style={{width: "90vw"}}>
+            <tr>
+              {keys.map((y)=><th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
+              <div className='tb_hd' style={{display: "flex"}}>
+                {y}
+                <div className="sort">
+                  <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-long-arrow-alt-up"></i></button>
+                  <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-long-arrow-alt-down"></i></button>
+                </div>
               </div>
-            </div>
-            </th>)}
-          </tr>
-            {
-              tableData ?
-              <TableData tableData={tableData} />
-              :
-              console.log("NULL")
-            }
-        </table>
+              </th>)}
+            </tr>
+              {
+                tableData ?
+                <TableData tableData={tableData} />
+                :
+                console.log("NULL")
+              }
+          </table>
+        </div>
+      </div>
+      <div style={{display: tableName ? "block" : "none"}}>
+      <p style={{textAlign: "center", marginTop: "20px"}}>Click to insert data into {tableName}</p>
+      <div className="add">
+        <div className='add_btn'>+</div>
+      </div>
       </div>
     </div>
   );

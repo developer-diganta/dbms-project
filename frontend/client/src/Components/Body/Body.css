@@ -1,7 +1,12 @@
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
 .button{
     outline: none;
     border: none;
-    margin: 40px 20px;
+    margin: 40px 10px;
     border-radius: 40px;
     font-size: larger;
     font-weight: 600;
@@ -144,4 +149,35 @@ transition: 0.4s;
 .btn_2{
     background-color: #3D5B59;
     color: #B5E5CF;
+}
+
+.table_name{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0px 0px 10px 0px;
+}
+
+.add{
+    display: flex;
+    justify-content: center;
+}
+
+.add_btn{
+    font-size: 40px;
+    background-color: #FFF;
+    border-radius: 50%;
+    margin: 10px 0px 20px 0px;
+    background: linear-gradient(145deg, #dddddd, #ffffff);
+    box-shadow:  20px 20px 40px rgba(0, 0, 0, 0.3),
+             -20px -10px 40px #ffffff;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add_btn:hover{
+    transform: scale(1.06);
 }
