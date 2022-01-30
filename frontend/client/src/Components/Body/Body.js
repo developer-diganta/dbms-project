@@ -107,7 +107,7 @@ function callInsert(){
             <div className="white_1"></div>
           </div>
         </button>
-        <button className='button b_2' onClick={() => fees('select * from query', 'query')}>
+        <button className='button b_2' onClick={() => fees('select * from exam', 'exam')}>
           <div className='p_wh'>
             Exam
             <div className="white"></div>
@@ -121,7 +121,7 @@ function callInsert(){
             <div className="white_1"></div>
           </div>
         </button>
-        <button className='button b_2' onClick={() => fees('select * from total_fee', 'total_fee')}><div className='p_wh'>
+        {/* <button className='button b_2' onClick={() => fees('select * from total_fee', 'total_fee')}><div className='p_wh'>
             Total Fee
             <div className="white"></div>
             <div className="white_1"></div>
@@ -133,7 +133,7 @@ function callInsert(){
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
-        </button>
+        </button> */}
       </div>
       {/* <div className="sort">
         <button className='sort_btn' onClick={() => ascending()}><i class="fas fa-sort-up"></i></button>
@@ -144,15 +144,21 @@ function callInsert(){
         <div style={{overflowX: "auto"}}>
           <table style={{width: "90vw"}}>
             <tr>
-              {keys.map((y)=><th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
-              <div className='tb_hd' style={{display: "flex"}}>
-                {y}
-                <div className="sort">
-                  <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-long-arrow-alt-up"></i></button>
-                  <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-long-arrow-alt-down"></i></button>
+              {
+              keys.map((y, index)=>
+                index === 0 ?
+                console.log("jdvjgkd")
+                :
+                <th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
+                <div className='tb_hd' style={{display: "flex"}}>
+                  {y}
+                  <div className="sort">
+                    <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-long-arrow-alt-up"></i></button>
+                    <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-long-arrow-alt-down"></i></button>
+                  </div>
                 </div>
-              </div>
-              </th>)}
+                </th>
+              )}
             </tr>
               {
                 tableData ?
