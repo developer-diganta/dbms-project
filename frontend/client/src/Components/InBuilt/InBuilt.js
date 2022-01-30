@@ -24,7 +24,6 @@ function InBuilt() {
           <Dropdown.Item onClick={() => getData('details')}>Students with concession</Dropdown.Item>
           <Dropdown.Item onClick={() => getData('departments/Information technology')}>It Dept</Dropdown.Item>
           <Dropdown.Item onClick={() => getData('departments/Computer science')}>Cse Dept</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
         </DropdownButton>
       </div>
       <div className="table_1">

@@ -50,7 +50,7 @@ function TableData({tableData, tableName}) {
                         <tr>{
                             keys.map((x, index) => {
                                 return(
-                                    index === 0 ?
+                                    x === 'idx' ?
                                     console.log("Kdhkdh"):
                                     <td style={{width: "100vw",border: "1px solid #FFB067", backgroundColor: "#FFED86",textAlign: "center", margin: "0px auto", padding: "10px"}}>
                                     {/* {} */}

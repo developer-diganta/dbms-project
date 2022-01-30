@@ -25,7 +25,11 @@ function InsertBody() {
           </form>
           <div className="table_1">
             <tr>
-                {keys.map((y)=><th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
+                {keys.map((y, index)=>
+                y === 'idx' ?
+                console.log("jdvjgkd")
+                :
+                <th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
                 {y}
                 </th>)}
             </tr>
