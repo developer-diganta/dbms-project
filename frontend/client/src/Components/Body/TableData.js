@@ -25,9 +25,18 @@ function TableData({tableData, tableName}) {
         console.log("kdgdugksjkesgkjegks");
         setInsert(true);
     }
-    function sendUpdateData(event, x, tableName){
+    async function sendUpdateData(event, x, tableName, idx){
         event.preventDefault();
-        console.log(x, tableName, event.target.data.value);
+        //     tablename = req.body.tablename;
+        // var idx = req.body.idx;
+        // var cell = req.body.cell;
+        // var value
+        var tablename = tableName;
+        var id = idx;
+        var cell = x;
+        var val = event.target.data.value;
+        
+        await axios.post(`http://localhost:5000/updatequery`, {tablename, id, cell, val});
     }
 
     async function insertData(){
@@ -45,12 +54,13 @@ function TableData({tableData, tableName}) {
                                     console.log("Kdhkdh"):
                                     <td style={{width: "100vw",border: "1px solid #FFB067", backgroundColor: "#FFED86",textAlign: "center", margin: "0px auto", padding: "10px"}}>
                                     {/* {} */}
-                                    <div className='data_form' style={{display: insert ? "block" : "none", position: "absolute"}}>
+                                    <div className='data_form' style={{display: insert ? "block" : "none"}}>
                                         <div style={{display: index === num && ix === num_1 ? "block" : "none"}}>
-                                            <form onSubmit={(event) => sendUpdateData(event,x, tableName)}>
-                                                <input name="data" type="text" id="" />
-                                
-                                            <button onClick={() => setInsert(false)}>Cancel</button>
+                                            <form onSubmit={(event) => sendUpdateData(event,x, tableName, item['idx'])}>
+                                                <div className='p_up'>
+                                                    <input className='update_form' name="data" type="text" id="" />
+                                                    <button onClick={() => setInsert(false)}>Cancel</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

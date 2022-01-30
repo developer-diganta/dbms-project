@@ -213,3 +213,29 @@ transition: 0.4s;
 .input_field_1:focus{
     outline: none;
 }
+
+.p_up{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+.update_form{
+    border: none;
+    padding: 8px 10px;
+    top: -10px;
+    position: relative;
+}
+
+.update_form:focus{
+    outline: none;
+}
+
+.p_up button{
+    border: none;
+    background-color: #172337;
+    color: #FFF;
+    top: -10px;
+    position: relative;
+}
