@@ -131,6 +131,25 @@ app.get("/xyz/:query", (req, res) => {
     });
 })
 
+app.post("/insert", (req, res) => {
+    var query = req.body.query;
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+        console.log(rows);
+        res.json(rows);
+     });
+})
+
+app.post("/delete", (req, res) => {
+    var query = req.body.query;
+    console.log(query);
+    connection.query(query, (err, rows, fields) => {
+        if (err) throw err;
+        console.log(rows);
+        res.json(rows);
+     });
+})
+
 app.post("/sort", (req, res) => {
     const order = req.body.order;
     const order_by = req.body.order_by;

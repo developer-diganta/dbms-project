@@ -7,6 +7,7 @@ import './Body.css';
 function Body() {
   const[tableData, setTableData] = useState();
   const[tableName, setTableName] = useState();
+  const[insert, setInsert] = useState(false);
   var keys = (Object.keys(tableData ? tableData[0] : []));
 
   async function data(){
@@ -55,8 +56,30 @@ async function descending(a){
   setTableData(await response_A.data);
 }
 
+async function insertData(e){
+  e.preventDefault();
+  // console.log("a");
+  var a = [];
+  for(var i=1; i<keys.length; i++){
+    a[i-1]=e.target[keys[i]].value;
+  }
+  console.log(a);
+  var k = keys.splice(1, keys.length);
+  console.log(k);
+  // var abcd = 
+  // console.log(abcd);
+  const query = `insert into ${tableName}(${k.join(',')}) values(${a.join(',')});`;
+  await axios.post(`http://localhost:5000/insert`, {query});
+}
+
+function callInsert(){
+  setInsert(true);
+}
+
  useEffect(() => {
    data();
+   
+  console.log(keys);
    console.log(tableData);
  }, [])
 
@@ -133,7 +156,7 @@ async function descending(a){
             </tr>
               {
                 tableData ?
-                <TableData tableData={tableData} />
+                <TableData tableData={tableData} tableName={tableName} />
                 :
                 console.log("NULL")
               }
@@ -143,8 +166,26 @@ async function descending(a){
       <div style={{display: tableName ? "block" : "none"}}>
       <p style={{textAlign: "center", marginTop: "20px"}}>Click to insert data into {tableName}</p>
       <div className="add">
-        <div className='add_btn'>+</div>
+        <div className='add_btn' onClick={callInsert}>+</div>
       </div>
+      </div>
+      <div className="form_modal" style={{display: insert ? "block" : "none"}}>
+        <div className='form_modal_1'>
+          <p style={{color: "#FFF", fontSize: "40px"}}>Enter row values</p>
+          <form onSubmit={insertData}>
+            {
+              keys.map((val, index) => (
+                val === 'idx' ? console.log("abcd") :
+                <div>
+                  <input className='input_field_1' type="text" placeholder={val} name={val} />
+                <br />
+                </div>
+              ))
+            }
+            <button type="submit" className='BTN'>Submit</button>
+          </form>
+          <button style={{margin: "10px 0px"}} className='BTN' onClick={() => setInsert(false)}>Cancel</button>
+        </div>
       </div>
     </div>
   );
