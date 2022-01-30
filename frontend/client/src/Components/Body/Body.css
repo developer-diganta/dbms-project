@@ -181,3 +181,35 @@ transition: 0.4s;
 .add_btn:hover{
     transform: scale(1.06);
 }
+
+.form_modal{
+    position: fixed;
+    /* display: fixed; */
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    /* bottom: 0; */
+    overflow-x: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.form_modal_1{
+    position: relative;
+    top: 30%;
+    left: 40%;
+    overflow-x: hidden;
+    transform: translateX(-50%),translateY(-50%);
+}
+
+.input_field_1{
+    padding: 10px 20px 10px 28px;
+    margin: 10px 0px;
+    border: none;
+    border-radius: 10px;
+}
+
+.input_field_1:focus{
+    outline: none;
+}
