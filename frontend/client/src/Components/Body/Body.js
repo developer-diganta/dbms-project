@@ -107,7 +107,7 @@ function callInsert(){
             <div className="white_1"></div>
           </div>
         </button>
-        <button className='button b_2' onClick={() => fees('select * from query', 'query')}>
+        <button className='button b_2' onClick={() => fees('select * from exam', 'exam')}>
           <div className='p_wh'>
             Exam
             <div className="white"></div>
@@ -117,19 +117,6 @@ function callInsert(){
         <button className='button b_1' onClick={() => fees('select * from student', 'student')}>
           <div className='p_wh'>
             Student
-            <div className="white"></div>
-            <div className="white_1"></div>
-          </div>
-        </button>
-        <button className='button b_2' onClick={() => fees('select * from total_fee', 'total_fee')}><div className='p_wh'>
-            Total Fee
-            <div className="white"></div>
-            <div className="white_1"></div>
-          </div>
-        </button>
-        <button className='button b_1' onClick={() => fees('select * from total_fee_paid', 'total_fee_paid')}>
-          <div className='p_wh'>
-            Total Fee Paid
             <div className="white"></div>
             <div className="white_1"></div>
           </div>
