@@ -103,7 +103,7 @@ app.get("subject/:sub/:percent", (req, res) => {
 app.get("/departments/:dpt", (req, res) => {
     var dept = req.params.dpt;
     console.log(dept);
-    const query = `select name, rollno, regno from student, query where query.Registration_number=student.regno and query.stream_name="${dept}" group by student.regno;`
+    const query = `select name, rollno, regno from student, exam where exam.Registration_number=student.regno and exam.stream_name="${dept}" group by student.regno;`
     connection.query(query, (err, rows, fields) => {
         if(err) console.log(err);;
         console.log(rows);
