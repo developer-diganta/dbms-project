@@ -174,9 +174,18 @@ app.post("/inputquery", (req, res) => {
     });
 })
 
-
-
-
+app.post("/updatequery", (req, res) => { 
+    var tablename = req.body.tablename;
+    var idx = req.body.idx;
+    var cell = req.body.cell;
+    var value = req.body.value;
+    var query = `update ${tablename} set ${cell} = '${value}' where idx=${idx};`;
+    connection.query(query, (err, rows, fields) => {
+        if (err) res.send("404");
+        console.log(rows);
+        res.json(rows);
+    });
+})
 
 //Listening on port 5000
 app.listen(process.env.PORT || 5000, () => {
