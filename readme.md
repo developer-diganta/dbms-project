@@ -24,6 +24,7 @@ git fetch upstream
 6. Go to the frontend folder.
 ```bash
 cd frontend
+cd client
 ```
 7. Run the following command(make sure node is installed).
 ```bash
