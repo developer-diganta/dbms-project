@@ -12,7 +12,7 @@ app.use(cors());
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'dana@1234',
+  password : 'password',
   database : 'student_portal'
 });
 connection.connect();
