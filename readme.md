@@ -15,7 +15,7 @@ cd dbms-project
 ```
 4. Run the following command
 ```bash
-git remote add https://github.com/developer-diganta/dbms-project
+git remote add upstream https://github.com/developer-diganta/dbms-project
 ```
 5.  Fetch in case new changes have been made to the repo
 ```bash
@@ -24,6 +24,7 @@ git fetch upstream
 6. Go to the frontend folder.
 ```bash
 cd frontend
+cd client
 ```
 7. Run the following command(make sure node is installed).
 ```bash

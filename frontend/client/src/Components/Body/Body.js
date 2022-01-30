@@ -121,19 +121,6 @@ function callInsert(){
             <div className="white_1"></div>
           </div>
         </button>
-        {/* <button className='button b_2' onClick={() => fees('select * from total_fee', 'total_fee')}><div className='p_wh'>
-            Total Fee
-            <div className="white"></div>
-            <div className="white_1"></div>
-          </div>
-        </button>
-        <button className='button b_1' onClick={() => fees('select * from total_fee_paid', 'total_fee_paid')}>
-          <div className='p_wh'>
-            Total Fee Paid
-            <div className="white"></div>
-            <div className="white_1"></div>
-          </div>
-        </button> */}
       </div>
       {/* <div className="sort">
         <button className='sort_btn' onClick={() => ascending()}><i class="fas fa-sort-up"></i></button>
