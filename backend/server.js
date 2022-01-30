@@ -21,7 +21,7 @@ connection.connect();
 app.get("/", (req, res) => {
     var query = "SHOW TABLES";
     connection.query(query, (err, rows, fields) => { 
-        if (err) throw err;
+        if (err) console.log(err);;
         var results = [];
         for (var i = 0; i < rows.length; i++) {
             results.push(rows[i].Tables_in_student_portal);
@@ -41,7 +41,7 @@ address varchar(20) not null,
 email varchar(25) not null
 );`;
      connection.query(query, (err, rows, fields) => { 
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
     });
 })
@@ -52,7 +52,7 @@ regno varchar(6) not null,
 dept_id int(3) not null
 );`;
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         res.json("Query: " + query);
      });
 })
@@ -63,7 +63,7 @@ app.get("/createtableadministrator", (req, res) => {
   receiptno varchar(6) not null
 );`
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         res.json("Query: " + query);
     });
 })
@@ -74,7 +74,7 @@ app.get("/createtablefeereceipt", (req, res) => {
   receiptno varchar(6) not null
 );`
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         res.json("Query: " + query);
     });
 })
@@ -85,7 +85,7 @@ app.get("subject/:sub/:percent", (req, res) => {
     const percent = req.params.percent;
     const query = `select * from student where regno in (select Registration_number from query where Subject_name='${sub}' and score>=${percent});`
     connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
         res.json(rows);
     })
@@ -94,7 +94,7 @@ app.get("subject/:sub/:percent", (req, res) => {
 // app.get("/totalmarks", (req, res) => {
 //     const query = `select Registration_number, sum(score) as total_marks from query group by Registration_number;`
 //     connection.query(query, (err, rows, fields) => {
-//         if(err) throw err;
+//         if(err) console.log(err);;
 //         console.log(rows);
 //         // res.json(rows);
 //     })
@@ -105,7 +105,7 @@ app.get("/departments/:dpt", (req, res) => {
     console.log(dept);
     const query = `select name, rollno, regno from student, query where query.Registration_number=student.regno and query.stream_name="${dept}" group by student.regno;`
     connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
         res.json(rows);
     })
@@ -114,7 +114,7 @@ app.get("/departments/:dpt", (req, res) => {
 app.get("/details", (req, res) => { 
     var query = `select name, regno from student where regno in (select regno from fee_details,fee_receipt where fee_details.recieptno=fee_receipt.receiptno and fee_details.concession is not null);`;
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         console.log(rows);
         res.json(rows);
      });
@@ -125,7 +125,7 @@ app.get("/xyz/:query", (req, res) => {
     console.log(queryName);
     var query=`${queryName}`;
     connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
         res.json(rows);
     });
@@ -134,7 +134,7 @@ app.get("/xyz/:query", (req, res) => {
 app.post("/insert", (req, res) => {
     var query = req.body.query;
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         console.log(rows);
         res.json(rows);
      });
@@ -144,7 +144,7 @@ app.post("/delete", (req, res) => {
     var query = req.body.query;
     console.log(query);
     connection.query(query, (err, rows, fields) => {
-        if (err) throw err;
+        if (err) console.log(err);;
         console.log(rows);
         res.json(rows);
      });
@@ -156,7 +156,7 @@ app.post("/sort", (req, res) => {
     const last_query = req.body.last_query;
     var query=`${last_query}` + " ORDER BY " + order_by + " "+ order;
     connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
         res.json(rows);
     });
@@ -168,7 +168,7 @@ app.post("/inputquery", (req, res) => {
     const Aquery = req.body.query;
     var query=`${Aquery}`;
     connection.query(query, (err, rows, fields) => {
-        if(err) throw err;
+        if(err) console.log(err);;
         console.log(rows);
         res.json(rows);
     });

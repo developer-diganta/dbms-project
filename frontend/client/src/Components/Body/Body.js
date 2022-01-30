@@ -131,15 +131,21 @@ function callInsert(){
         <div style={{overflowX: "auto"}}>
           <table style={{width: "90vw"}}>
             <tr>
-              {keys.map((y)=><th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
-              <div className='tb_hd' style={{display: "flex"}}>
-                {y}
-                <div className="sort">
-                  <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-long-arrow-alt-up"></i></button>
-                  <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-long-arrow-alt-down"></i></button>
+              {
+              keys.map((y, index)=>
+                index === 0 ?
+                console.log("jdvjgkd")
+                :
+                <th style={{width: "100vw", border: "1px solid #B8390E", textTransform: "uppercase", backgroundColor: "#FFB067",textAlign: "center", margin: "0px auto", padding: "10px"}}>
+                <div className='tb_hd' style={{display: "flex"}}>
+                  {y}
+                  <div className="sort">
+                    <button className='sort_btn btn_1' onClick={() => ascending(y)}><i class="fas fa-long-arrow-alt-up"></i></button>
+                    <button className='sort_btn btn_2' onClick={() => descending(y)}><i class="fas fa-long-arrow-alt-down"></i></button>
+                  </div>
                 </div>
-              </div>
-              </th>)}
+                </th>
+              )}
             </tr>
               {
                 tableData ?
